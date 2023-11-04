@@ -16,7 +16,7 @@ function helloTriangle() {
         return;
     }
 
-    const gl = canvas.getContext('webg12'); // WebGL 2
+    const gl = canvas.getContext('webgl2'); // WebGL 2
     if (!gl) {
         const isWebGl1Supported = !!(document.createElement('canvas')).getContext('webgl');
         if (isWebGl1Supported) {

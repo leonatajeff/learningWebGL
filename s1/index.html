@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -8,35 +8,44 @@
             html, head, body {
                 margin: 0;
                 padding: 25px;
-                background-color: gray;
+                background-color: #2a2a2a;
             }
 
             #demo-canvas {
-                border: 1px solid black;
                 width: 800px;
                 height: 800px;
 
-                /* Debugger */
-                background-color: tomato;
+                /*
+                * WebGL trick: pick an offensive canvas background color to test
+                *  opacity/clearing bugs
+                */
+                background-color: #da6052;
+
+                /* Help to illustrate the rasterizer's job: when artificially lowering resolution, show pixelated image */
+                image-rendering: crisp-edges;
             }
 
+            /** CSS to make a nice little error box output for debugging (nice if you can't use devtools, e.g. mobile)  */
             #error-box {
-                color: white;
+                color: #fd8080;
                 font-weight: 500;
                 font-size: 18pt;
-                border: 1px solid black;
+                border: 1px solid white;
                 padding: 25px;
                 margin-top: 20px;
             }
 
             .error-box-title {
-               color: red;
-               border-bottom: 1px solid blue;
+                color: #eee;
+                border-bottom: 1px solid gray;
             }
         </style>
     </head>
     <body>
-        <canvas id="demo-canvas" width="800px" height="800px"></canvas>
+        <canvas id="demo-canvas" width="800px" height="800px">
+            <!-- This message shows up only if the Canvas element isn't supported -->
+            HTML5 canvas not supported in your browser! These demos will not work.
+        </canvas>
         <div id="error-box">
             <span class="error-box-title">Error messages, if any, go here</span>
         </div>
